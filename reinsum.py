@@ -14,7 +14,7 @@ print("A val is {}, B val is {}, slices count is {}, dx is {}".format(a, b, slic
 runningLine = 0
 
 #here is the implementation of "runningLine"
-for slice in range(slices):
+for slice in range(slices + 1):
     runningLine += (theFunction(slice*dx))
 
 #running line 
