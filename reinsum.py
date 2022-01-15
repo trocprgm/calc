@@ -1,6 +1,5 @@
 import numpy as np
 
-print(np.sin(0))
 
 def theFunction(x):
     return np.sin(x)
