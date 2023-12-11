@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import sys
 
 filename = sys.argv[1]
@@ -53,26 +54,37 @@ def absdif(num1, num2):
 def tperiod(mass,k):
     return round((2 * math.pi * math.sqrt(mass /k )),6)
 
-
-
-
-mass = 0
-delx1 = 1
-delx2 = 0
-deff1 = 0
-deff2 = 0
-k = abs( absdif(deff1,deff2) / absdif(delx1,delx2))
-
 def out(int):
     wave=peri(run)
     jsext = wave[wave.Period >0]
+    if (len(jsext)%2) == 1:
+        jsext = jsext.drop(jsext.index[0], axis=0,inplace=False )
     MeanSel = jsext.mean()
     match int:
         case 1:
+            wave[['Time','Pos','Period', 'CalPos']].to_csv('compr.csv',index=False)
+            
             print(wave)
         case 2:
-            print(jsext[['Time','Pos','isDupe', 'Period','CalPos']])
+            #jsext = jsext[['Time','Pos']]
+            #print(jsext[['Time','Pos','isDupe', 'Period','CalPos']])
+            jsext[['Time','Pos','isDupe','Period','CalPos']].to_csv('abrev.csv',index=False)
+            print(jsext)
         case 3:
-            print(MeanSel[['Time','Pos','Period']])
+            print("average Period: " + str( round(MeanSel['Period'], 3)) )
+        case 4:
+            Ampy = (abs(jsext.iat[0,7])+ abs(jsext.iat[1,7]) )/2
+            print("Amplitude(m): " + str( round(Ampy,3)) )
+        case 5:
+            print("Position Calibration Coef(m): " + str( round(MeanSel['Pos'], 3)) )
+        case 6:
+            jjsext = jsext[jsext.CalPos > 0]
+            Ampy = (abs(jsext.iat[0,7])+ abs(jsext.iat[1,7]) )/2
+            x = jjsext['Time'].to_numpy()
+            y = jjsext['CalPos'].to_numpy()
+            fit = np.polyfit(x, (Ampy *np.log(y)), 1)
+            print(str(fit[0])+ 'x')
+            print(np.e)
+            print(fit[1])
 
 out(int(selection))
