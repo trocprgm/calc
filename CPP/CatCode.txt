@@ -1,0 +1,1 @@
+cat Exam2.1.cpp <(echo) Exam2.2.cpp <(echo) Exam2.3.cpp <(echo) Exam2.4.cpp <(echo) Exam2.5.cpp <(echo) Exam2.6.cpp

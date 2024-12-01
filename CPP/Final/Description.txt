@@ -1,0 +1,35 @@
+
+Q.1 
+Demonstrate, create and use user-defined data type, using C++ Class Department with data members deptId, name and totalEmp, overload the operator + for Department class to sum the totalEmp. Use parametric Constructor 
+Department(int id, string name, int ecount) to initialize these data members. 
+
+Department dept1(100,"COMP",10); 
+Department dept2(20,"MATH", 20);
+
+cout<<dept1 + dept2;
+should return sum of totalEmp i.e. 30
+
+
+Q.2
+Write a program that accesses predefined template-class vector in code libraries to 
+find and print min, max,  and "centered average", use pre-initialized data. Use for/while loop to solve this problem.
+
+"centered average" is the mean average of the values,
+except ignoring the largest and smallest values. If there are multiple copies of the smallest value, ignore just one copy, and likewise for the largest value. 
+
+centeredAverage({5, 3, 3, 4, 8},5) == 4
+centeredAverage({-1, 1, 6, 4, 9, 8, 7},7) == 5
+centeredAverage({-15, -5, -1, -3, -3, 1},6) == -3
+
+
+Q.3
+Demonstrate the use of pointers and dynamic memory allocation using Employee class with name as dynamic data (string pointer ) Load the employee data from a file empData.txt using file stream, and use Copy constructor to deep copy the employee data.
+
+Create a text data file empData.txt with the following Id, Name, and dept data to read from this C++ program.
+
+101,Employee1,10
+
+
+Q.4
+Create an abstract base class Number with abstract function print, derive the Complex class from the base class Number, and overload + and - to add and subtract complex numbers.
+
