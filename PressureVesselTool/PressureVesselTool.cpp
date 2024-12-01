@@ -152,7 +152,6 @@ int HoopInterface() {
     for (int i=0;i<5;i++){
         cout << method(i) << "\n''''''''''''''''\n" << stress(OutsideDiameter, InsideDiameter, WallThickness, Pressure, i) << " Kpa\n\n";
     }
-
     return 0;
 }
 
@@ -197,7 +196,6 @@ int PressureInterface() {
     for (int i=0;i<5;i++){
         cout << method(i) << "\n''''''''''''''''\n" << pressure(OutsideDiameter, InsideDiameter, WallThickness, Stress, i) << " Kpa\n\n";
     }
-
     return 0;
 }
 
@@ -228,7 +226,6 @@ int WallInterface() {
     for (int i=0;i<5;i++){
         cout << method(i) << "\n''''''''''''''''\n" << wallthickness(InsideDiameter, Pressure, Stress, i) << " M\n\n";
     }
-
     return 0;
 }
 
@@ -260,7 +257,6 @@ int interface() {
             cin.ignore(10000, '\n');
             return 1;
     }
-
     return 1;
 }
 
